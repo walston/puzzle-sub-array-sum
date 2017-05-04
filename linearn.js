@@ -1,37 +1,22 @@
 function puzzle(array, k) {
-  const length = array.length
-
   let hashMap = {}
-  let subArrays = []
+  let count = 0
   let current = 0
 
-  for (let index = 0; index < length; index++) {
+  for (let index = 0; index < array.length; index++) {
     current += array[index]
+    hashMap[current] = hashMap[current] ? hashMap[current] + 1 : 1
 
     if (current === k) {
-      subArrays.push(array.slice(0, index + 1))
-    }
-
-    if (hashMap[current]) {
-      hashMap[current].push(index + 1)
-    }
-    else {
-      hashMap[current] = [index + 1]
+      count++
     }
 
     if (hashMap[current - k]) {
-      subArrays.push(...hashMap[current - k].map(
-        startIndex => array.slice(startIndex, index + 1)
-      ))
+      count += hashMap[current - k]
     }
   }
 
-  return {
-    count: subArrays.length,
-    arrays: subArrays
-  }
+  return count;
 }
 
 module.exports = puzzle
-
-// think algebraically

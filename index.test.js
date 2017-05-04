@@ -23,3 +23,9 @@ const Dk = 0
 console.log("D", D)
 console.log("Dk", Dk)
 console.log("puzzle(D, Dk)", puzzle(D, Dk))
+
+const E = [1,1,1,1,1,-3,1,-3,1,-3,-3,1,1]
+const Ek = 1
+console.log("E", E)
+console.log("Ek", Ek)
+console.log("puzzle(E, Ek)", puzzle(E, Ek))
